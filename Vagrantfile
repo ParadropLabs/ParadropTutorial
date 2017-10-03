@@ -70,9 +70,14 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
-     sudo apt-get update
-     sudo apt-get install -y python2.7 python-pip git nodejs nodejs-legacy npm
-     sudo pip install -U pip
-     sudo pip install pdtools
+     apt-get update
+     apt-get install -y python2.7 python-pip git nodejs nodejs-legacy npm
+     pip install -U pip
+     pip install pdtools
+
+     su ubuntu -c 'ssh-keygen -b 4096 -f /home/ubuntu/.ssh/id_rsa -N ""'
+
+     echo "Your public key for SSH:"
+     cat /home/ubuntu/.ssh/id_rsa.pub
    SHELL
 end
