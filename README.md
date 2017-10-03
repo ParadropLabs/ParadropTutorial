@@ -74,32 +74,33 @@ If not, you can view the contents of your public key with the following command:
 ### Preparing Your GitHub Account
 
 During the tutorial, we will be writing some code and publishing it on
-GitHub (https://github.com).  First, make you have a GitHub account. It
+GitHub (https://github.com).  First, make sure you have a GitHub account. It
 is free and only takes an email address to set up.
 
 Next, in order to push code from your VM, you will need to add your SSH
 public key to your GitHub profile. That enables GitHub to verify that
-the push came from you.
+the push came from you and not an imposter.
 
 Go to your GitHub account settings page (https://github.com/settings/keys)
 and add the **public** key mentioned above.
 
 After you finish the tutorial and/or delete the VM image, feel free to
-remove the public key from your account as it will no longer be needed.
+remove the public key from your account as it will no longer be used.
 
 ### Enabling SSH Access to Your Router
 
 During the tutorial, you will be doing some hands-on activitiies with a
 Paradrop wireless router. You can use SSH to view and debug software
-on the Paradrop router. However, for security purposes, password
-authentication is disabled, so you will need to upload your public key
-to the router to enable RSA authentication.
+on the Paradrop router. For security purposes, password authentication
+is disabled, so you will need to upload your public key to the router
+to enable RSA authentication.
+
+Run this command during the tutorial to enable SSH access from your VM.
 
     pdtools device <address> sshkeys add /home/ubuntu/.ssh/id_rsa.pub
 
-Replace <address> with the IP address of your router, which if you are
-connected to the Paradrop router's Wi-Fi network, will be 192.168.1.1
-unless you are instructed otherwise.
+Replace "&lt;address&gt;" with the IP address of your router, which if you are
+connected to the Paradrop router's Wi-Fi network, will be "192.168.1.1".
 
 ## Other Resources
 
