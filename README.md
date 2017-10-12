@@ -67,7 +67,7 @@ RSA key set up for SSH authentication. As part of the Vagrant provisioning
 process, your VM will automatically generate a unique key. You may have
 noticed the public key output at the end of the `vagrant up` command.
 
-If not, you can view the contents of your public key with the following command:
+You can view the contents of your public key with the following command:
 
     cat /home/ubuntu/.ssh/id_rsa.pub
 
@@ -95,7 +95,8 @@ on the Paradrop router. For security purposes, password authentication
 is disabled, so you will need to upload your public key to the router
 to enable RSA authentication.
 
-Run this command during the tutorial to enable SSH access from your VM.
+You will be assigned a router to use during the tutorial. After you
+receive your router, run this command to enable SSH access with your key.
 
     pdtools device <address> sshkeys add /home/ubuntu/.ssh/id_rsa.pub
 
@@ -104,7 +105,8 @@ connected to the Paradrop router's Wi-Fi network, will be "192.168.1.1".
 
 ## Other Resources
 
-For the latest version of the tutorial document:
+Check the link below for the latest version of the tutorial instructions. We
+recommend reading through sections 1 and 2 before the tutorial.
 
 https://docs.google.com/document/d/1oMEZUYhrmTxA06Cx5Gn9mDtgKnn4OGTc2Qx-uDD9x4M
 
