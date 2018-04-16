@@ -95,13 +95,16 @@ on the Paradrop router. For security purposes, password authentication
 is disabled, so you will need to upload your public key to the router
 to enable RSA authentication.
 
-You will be assigned a router to use during the tutorial. After you
-receive your router, run this command to enable SSH access with your key.
+If you run `pdtools wizard` during the tutorial and answer "yes" to the
+question asking if you have a node to configure, it will automatically
+try to set up SSH access for you. If you need to enable SSH access later
+on, you can run the following command.
 
-    pdtools device <address> sshkeys add /home/ubuntu/.ssh/id_rsa.pub
+    pdtools node --target <address> import-ssh-key ~/.ssh/id_rsa.pub
 
-Replace "&lt;address&gt;" with the IP address of your router, which if you are
-connected to the Paradrop router's Wi-Fi network, will be "192.168.1.1".
+Replace "&lt;address&gt;" with the IP address or domain name of your
+node, which if you are connected to the Paradrop Wi-Fi network, will be
+"192.168.1.1".
 
 ## Other Resources
 
