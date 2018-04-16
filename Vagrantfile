@@ -72,12 +72,15 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install -y python2.7 python-pip git nodejs nodejs-legacy npm
-     pip install -U pip
-     pip install pdtools
+     pip install pip~=9.0.0
+     pip install pdtools~=0.11.0
 
      su ubuntu -c 'ssh-keygen -b 4096 -f /home/ubuntu/.ssh/id_rsa -N ""'
 
      echo "Your public key for SSH:"
      cat /home/ubuntu/.ssh/id_rsa.pub
+
+     su ubuntu -c '{ echo; echo "# Enable pdtools tab completion."; _PDTOOLS_COMPLETE=source pdtools; } >> ~/.bashrc'
+     echo "Tab completion has been enabled for pdtools."
    SHELL
 end
