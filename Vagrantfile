@@ -73,7 +73,7 @@ Vagrant.configure(2) do |config|
      apt-get update
      apt-get install -y python2.7 python-pip git nodejs nodejs-legacy npm
      pip install pip~=9.0.0
-     pip install pdtools~=0.11.0
+     pip install pdtools~=0.12.0
 
      su vagrant -c 'ssh-keygen -b 4096 -f /home/vagrant/.ssh/id_rsa -N ""'
 
