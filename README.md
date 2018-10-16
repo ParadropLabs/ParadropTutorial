@@ -1,13 +1,19 @@
 # Tutorial Materials
 
 This repository contains materials useful for working through the Paradrop
-edge computing tutorial.
+edge computing tutorial. We ask that you review these instructions during
+the week leading up to the tutorial so that everyone arrives prepared.
 
 ## Running the Virtual Machine
 
-We have provided a Vagrantfile so that everyone can have a consistent
-development environment during the tutorial, regardless of the operating
-system installed on you laptop.
+During the tutorial we will be doing some individual programming tasks.
+For these exercises, everyone will need to use their own laptop. Because
+it is difficult for us to support all of the various operating systems
+that people may be running, we have prepared a virtual machine image
+for everyone to use as the development environment.
+
+You will need the Vagrantfile in this repository and to have VirtualBox
+and Vagrant installed on your laptop
 
 ### Install VirtualBox
 
@@ -29,17 +35,18 @@ https://www.vagrantup.com/downloads.html
 
 ### Run the Virtual Machine
 
-Check out this repository and from the same directory as the Vagrantfile,
-run:
+Clone this repository, and inside the directory containing the
+Vagrantfile, run:
 
     vagrant up
 
-Then use SSH to open a shell inside the VM.
+Then use the SSH command to open a shell inside the VM.
 
     vagrant ssh
 
 You can use this shell to run all of the commands in the Paradrop
-tutorial.
+tutorial. Various command line utilities including git, pdtools, and
+vim are preinstalled.
 
 ### Cleaning Up
 
@@ -71,18 +78,20 @@ You can view the contents of your public key with the following command:
 
     cat /home/ubuntu/.ssh/id_rsa.pub
 
-### Preparing Your GitHub Account
+### Preparing Your Paradrop Developer Account
 
-During the tutorial, we will be writing some code and publishing it on
-GitHub (https://github.com).  First, make sure you have a GitHub account. It
-is free and only takes an email address to set up.
+During the tutorial, you will be interacting with our edge computing
+cloud controller at paradrop.org. You should create a free developer
+account using your email address.
 
-Next, in order to push code from your VM, you will need to add your SSH
-public key to your GitHub profile. That enables GitHub to verify that
-the push came from you and not an imposter.
+In order to push code from your VM development environment to our
+hosted git repository, you will need to add your SSH public key to your
+paradrop.org profile. Your public key allows our system to securely
+verify the commits came from you.
 
-Go to your GitHub account settings page (https://github.com/settings/keys)
-and add the **public** key mentioned above.
+Go to your Paradrop Account Settings page
+(https://paradrop.org/settings/sshKeys) and add the **public** from your
+development environment mentioned in the previous section.
 
 After you finish the tutorial and/or delete the VM image, feel free to
 remove the public key from your account as it will no longer be used.
@@ -90,9 +99,9 @@ remove the public key from your account as it will no longer be used.
 ### Enabling SSH Access to Your Router
 
 During the tutorial, you will be doing some hands-on activitiies with a
-Paradrop wireless router. You can use SSH to view and debug software
-on the Paradrop router. For security purposes, password authentication
-is disabled, so you will need to upload your public key to the router
+Paradrop compute node. You can use SSH to view and debug software
+on the Paradrop node. For security purposes, password authentication
+is disabled, so you will need to upload your public key to the node
 to enable RSA authentication.
 
 If you run `pdtools wizard` during the tutorial and answer "yes" to the
@@ -108,11 +117,14 @@ node, which if you are connected to the Paradrop Wi-Fi network, will be
 
 ## Other Resources
 
-Check the link below for the latest version of the tutorial instructions. We
-recommend reading through sections 1 and 2 before the tutorial.
+Check the link below for the latest version of the tutorial
+instructions. We recommend reading through sections 1 and 2 before
+the tutorial. Sections 3 and 4 require access to a Paradrop node,
+so we will work through those during the tutorial.
 
 https://docs.google.com/document/d/1oMEZUYhrmTxA06Cx5Gn9mDtgKnn4OGTc2Qx-uDD9x4M
 
-View our developer-oriented documentation:
+For additional information, refer to our developer-oriented system
+documentation:
 
 http://paradrop.readthedocs.io/en/latest/
