@@ -97,9 +97,14 @@ hosted git repository, you will need to add your SSH public key to your
 paradrop.org profile. Your public key allows our system to securely
 verify the commits came from you.
 
-Go to your Paradrop Account Settings page
-(https://paradrop.org/settings/sshKeys) and add the **public** from your
-development environment mentioned in the previous section.
+Go to your Paradrop Account Settings page and add the **public** key from
+your development environment mentioned in the previous section.
+
+1. Sign in at https://paradrop.org.
+2. Click on Account -> Settings in the top menu.
+3. Click on SSH Keys in the side menu.
+4. Give the key a name, e.g. "vagrant@paradrop-tutorial", paste
+   in your **public** key contents, and click Add.
 
 After you finish the tutorial and/or delete the VM image, feel free to
 remove the public key from your account as it will no longer be used.
