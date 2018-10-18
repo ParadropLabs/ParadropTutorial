@@ -78,6 +78,14 @@ You can view the contents of your public key with the following command:
 
     cat /home/ubuntu/.ssh/id_rsa.pub
 
+If you receive the error:
+
+    cat /home/ubuntu/.ssh/id_rsa.pub: No such file or directory
+
+You can create one manually with the following command:
+
+	ssh-keygen -A
+
 ### Preparing Your Paradrop Developer Account
 
 During the tutorial, you will be interacting with our edge computing
