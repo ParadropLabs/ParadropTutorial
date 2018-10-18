@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-   config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
@@ -69,18 +69,18 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get install -y python2.7 python-pip git nodejs nodejs-legacy npm
-     pip install pip~=9.0.0
-     pip install pdtools~=0.12.0
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y python2.7 python-pip git nodejs nodejs-legacy npm
+    pip install pip~=9.0.0
+    pip install pdtools~=0.12.0
 
-     su vagrant -c 'ssh-keygen -b 4096 -f /home/vagrant/.ssh/id_rsa -N ""'
+    for user in $(find /home -maxdepth 1 -mindepth 1 -type d -printf '%P\n'); do
+      su $user -c 'ssh-keygen -b 4096 -f ~/.ssh/id_rsa -N ""'
+      su $user -c '{ echo; echo "# Enable pdtools tab completion."; _PDTOOLS_COMPLETE=source pdtools; } >> ~/.bashrc'
 
-     echo "Your public key for SSH:"
-     cat /home/vagrant/.ssh/id_rsa.pub
-
-     su vagrant -c '{ echo; echo "# Enable pdtools tab completion."; _PDTOOLS_COMPLETE=source pdtools; } >> ~/.bashrc'
-     echo "Tab completion has been enabled for pdtools."
-   SHELL
+      echo "Generated public key for user $user:"
+      cat /home/$user/.ssh/id_rsa.pub
+    done
+  SHELL
 end
