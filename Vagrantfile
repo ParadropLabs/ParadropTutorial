@@ -79,6 +79,10 @@ Vagrant.configure(2) do |config|
       su $user -c 'ssh-keygen -b 4096 -f ~/.ssh/id_rsa -N ""'
       su $user -c '{ echo; echo "# Enable pdtools tab completion."; _PDTOOLS_COMPLETE=source pdtools; } >> ~/.bashrc'
 
+      # Set default identity for git.
+      su $user -c "git config --global user.email '$user@paradrop-tutorial'"
+      su $user -c "git config --global user.name '$user'"
+
       echo "Generated public key for user $user:"
       cat /home/$user/.ssh/id_rsa.pub
     done
